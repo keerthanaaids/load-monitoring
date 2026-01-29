@@ -17,8 +17,8 @@ body {
     margin: 0;
     font-family: 'Poppins', sans-serif;
     overflow-x: hidden;
-    color: #fcf3f3;
-    background: #0a0a0a;
+    color: #eafcff;
+    background: radial-gradient(circle at top,#0f2027,#000428);
     position: relative;
 }
 
@@ -51,14 +51,14 @@ canvas {
 /* =================== FLOATING CIRCUIT CIRCLES =================== */
 .circuit {
     position: absolute;
-    border: 2px solid rgba(240, 0, 224, 0.2);
+    border: 2px solid rgba(0, 255, 255, 0.25);
     border-radius: 50%;
-    animation: float 20s linear infinite;
+    animation: float 25s linear infinite;
     opacity: 0.5;
-    box-shadow: 0 0 15px rgba(250, 26, 131, 0.4);
+    box-shadow: 0 0 20px rgba(0, 255, 255, 0.4);
 }
 
-.circuit:nth-child(1) {width: 250px; height: 250px; top: 5%; left: 10%; animation-duration: 25s;}
+.circuit:nth-child(1) {width: 240px; height: 240px; top: 8%; left: 12%; animation-duration: 25s;}
 .circuit:nth-child(2) {width: 180px; height: 180px; top: 40%; left: 70%; animation-duration: 30s;}
 .circuit:nth-child(3) {width: 300px; height: 300px; top: 65%; left: 25%; animation-duration: 35s;}
 
@@ -78,13 +78,14 @@ header {
 
 header h1 {
     font-size: 3rem;
-    color: #35ffee;
-    text-shadow: 0 0 20px #73e0ef, 0 0 40px hsl(180, 91%, 66%);
+    color: linear-gradient(90deg,#00ffe7,#7f7bff,#ff4ecd);
+    text-shadow: 0 0 25px rgba(0,255,255,0.6);
+
 }
 
 header p {
     font-size: 1.2rem;
-    color: #ffffffc4;
+    color: #bffcff;
 }
 
 /* =================== CONTAINER =================== */
@@ -98,42 +99,49 @@ header p {
 
 /* =================== CARD STYLING =================== */
 .card {
-    background: rgba(0,0,0,0.6);
-    backdrop-filter: blur(15px);
+    background: rgba(255,255,255,0.08);
+    backdrop-filter: blur(18 px);
     color: rgb(255, 255, 255);
-    border-radius: 20px;
+    border-radius: 22px;
     padding: 30px;
-    margin-bottom: 25px;
-    box-shadow: 0 15px 50px rgba(0,0,0,0.7);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    margin-bottom: 30px;
+    box-shadow: 0 25px 80px rgba(0,0,0,0.7);
+    transition: transform 0.3s ease;
 }
 
 .card:hover {
     transform: translateY(-12px);
-    box-shadow: 0 25px 80px rgba(5, 41, 246, 0.8);
+    box-shadow: 0 25px 80px rgba(0, 200, 255, 0.8);
 }
 
 .card h2 {
     margin-bottom: 20px;
     font-size: 2rem;
-    color: #e6ff28;
-    text-shadow: 0 0 10px #827902;
+    color: #00fff7;
+     text-shadow: 0 0 10px rgba(0,255,255,0.7);
+;
 }
 
 /* =================== BUTTONS =================== */
 .buttons button {
     padding: 15px 35px;
-    font-size: 16px;
+    font-weight: 600px;
     border: none;
     border-radius: 50px;
     cursor: pointer;
-    margin-right: 15px;
     transition: 0.3s;
-    box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+    letter-spacing: 1px;
 }
-
-.on { background: #ff1d1d; color: white; box-shadow: 0 0 15px #3c13f4; }
-.off { background: #070856; color: white; box-shadow: 0 0 15px #f136f4; }
+on { background: linear-gradient(135deg,#00ff99,#00c3ff); 
+    color:#000;
+    box-shadow: 0 0 20px
+rgba(0,255,200,0.7);
+}   
+.off {
+     background: linear-gradient(135deg,#ff4e50,#f00000);
+     color: #fff;
+     box-shadow: 0 0 25px rgba(255,80,80,0.7);
+}
 
 .buttons button:hover {
     transform: scale(1.15);
@@ -143,6 +151,7 @@ header p {
 .status {
     font-size: 20px;
     margin-top: 15px;
+    color:#ffffff
 }
 
 /* =================== SENSOR GRID =================== */
@@ -154,15 +163,14 @@ header p {
 }
 
 .sensor {
-    background: linear-gradient(135deg, #f852c9, #e2f933);
-    color: white;
+    background: linear-gradient(135deg, rgba(0,255,255,0.35), rgba(128,0,255,0.35)
+    );
     border-radius: 20px;
-    padding: 25px;
+    padding: 30px;
     text-align: center;
-    position: relative;
-    overflow: hidden;
     box-shadow: 0 10px 40px rgba(0,0,0,0.5);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid rgba(255,255,255,0.2);
 }
 
 .sensor:hover {
@@ -173,7 +181,7 @@ header p {
 .sensor i {
     font-size: 55px;
     margin-bottom: 15px;
-    text-shadow: 0 0 15px #70ff5d;
+    text-shadow: 0 0 20px #00fff7;
 }
 
 /* =================== EXTRA INFO =================== */
@@ -181,18 +189,14 @@ header p {
     background: rgba(0,0,0,0.4);
     border-radius: 15px;
     padding: 20px;
-    margin-top: 15px;
-    font-size: 16px;
-    line-height: 1.5;
-}
+    
 
 /* =================== FOOTER =================== */
 footer {
     text-align: center;
     padding: 20px;
     background: rgba(0,0,0,0.3);
-    backdrop-filter: blur(5px);
-    font-size: 14px;
+    color:#bffcff;
 }
 
 /* =================== RESPONSIVE =================== */
