@@ -36,7 +36,7 @@ AUTOINCREMENT,
             )
         """)
     conn.commit()
-    dconn.close()
+    conn.close()
 
 
 init_db()
