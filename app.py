@@ -1,4 +1,4 @@
-from flask import Flask, jsonify
+from flask import Flask, jsonify,request
 from flask_cors import CORS
 import sqlite3
 from datetime import datetime
@@ -118,17 +118,21 @@ def latest_data():
 @app.route("/api/control",
 methods=["POST"])
 def control_relay():
-    global relay_status
+    global relay_status, MAX_VOLTAGE
     command = request.json.get("status")
 
     if command == "OFF":
         relay_status = "OFF"
+        MAX_VOLTAGE = 0   # voltage becomes 0 when OFF
 
     elif command == "ON" and fault_status == "NORMAL":
-        relay_statsu = "ON"
+        relay_status = "ON"
+        MAX_VOLTAGE = 250   # voltage limit normal when ON
 
-    return jsonify({"relay": relay_status})
-
+    return jsonify({
+        "relay": relay_status,
+        "MAX_VOLTAGE": MAX_VOLTAGE
+    })
 #============================ RUN SERVER ==========================
 if __name__ == "__main__":
     app.run(debug=True, host="0.0.0.0",port=5000)
