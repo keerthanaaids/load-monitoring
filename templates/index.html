@@ -13,9 +13,9 @@
 
 <style>
 /* =================== BODY & BACKGROUND =================== */
-body {
-    margin: 0;
+body {in: 0;
     font-family: 'Poppins', sans-serif;
+    marg
     overflow-x: hidden;
     color: #eafcff;
     background: radial-gradient(circle at top,#0f2027,#000428);
@@ -87,7 +87,19 @@ header p {
     font-size: 1.2rem;
     color: #bffcff;
 }
+</header>
+/* =================== ALERT BOX =================== */
+<div id="alert box";
+    style="display:none;
+    background:red;
+    color:white;
+    padding:10px;
+    text-align:center;">
+        ⚠️ Fault Detected!
+    </div>
 
+    <div class="container">
+    
 /* =================== CONTAINER =================== */
 .container {
     max-width: 1200px;
@@ -299,6 +311,16 @@ footer {
 // =================== Live Sensor Simulation ===================
 function turnOn() { document.getElementById("status").innerText = "ON"; }
 function turnOff() { document.getElementById("status").innerText = "OFF"; }
+function showAlert(message) {
+    const box =
+ document.getElementById("alertBox")
+    box.innerText = "⚠️"+ message;
+    box.style.display = "block";
+
+    setTimeout(() => { 
+        box.style.display = "none";
+    },3000);
+}   
 
 setInterval(() => {
     let voltage = 220 + Math.floor(Math.random() * 25);
@@ -310,18 +332,17 @@ setInterval(() => {
     document.getElementById("power").innerText = power;
 // =================== Fault Conditions=============================
     if  (voltage > 250) {
-        alert(" FAULT ALERT: over voltage detected!");
-        turnoff();
-
+        showAlert("Over Voltage !");
+        turnoff();     
     }
     if  (current >3) {
-        aleart(" FAULT ALERT: over current detected!");
+        showAlert("Over Current!");
+        turnoff();     
     }
     if (power > 700) {
-        alert(" FAULT AKERT: power overload!");
+        showAlert("Power Overload!");      
         turnoff();
-    
-}, 2000);
+    }
 
 // =================== Neon Circuit Lines Canvas ===================
 const canvas = document.getElementById("circuitCanvas");
