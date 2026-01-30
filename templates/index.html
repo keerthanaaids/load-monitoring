@@ -13,23 +13,24 @@
 
 <style>
 /* =================== BODY & BACKGROUND =================== */
-body {in: 0;
+body {
+    margin: 0;
     font-family: 'Poppins', sans-serif;
-    marg
     overflow-x: hidden;
     color: #eafcff;
     background: radial-gradient(circle at top,#0f2027,#000428);
-    position: relative;
 }
 
 /* Full-width circuit board background with dark filter */
 body::before {
     content: "";
     position: fixed;
-    top:0; left:0;
-    width:100%; height:100%;
+    insert:0;
     background: url('https://i.imgur.com/2c9TtLy.jpg') no-repeat center center;
     background-size: cover;
+    filter: brightness(0.25) contrast(1.3);
+    z-index: -3;
+}
     z-index: -3;
     filter: brightness(0.25) contrast(1.3);
 }
